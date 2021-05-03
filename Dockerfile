@@ -7,4 +7,4 @@ COPY --from=node /usr/local/lib/node_modules/npm/ /usr/local/lib/node_modules/np
 RUN ln -s /usr/local/lib/node_modules/npm/bin/npm-cli.js /usr/local/bin/npm && \
     npm i -g yarn
 
-
+RUN ls
