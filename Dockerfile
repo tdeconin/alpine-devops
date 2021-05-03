@@ -4,7 +4,9 @@ FROM mcr.microsoft.com/azure-cli
 
 COPY --from=node /usr/local/bin/node /usr/local/bin/node
 COPY --from=node /usr/local/lib/node_modules/npm/ /usr/local/lib/node_modules/npm/
-RUN ln -s /usr/local/lib/node_modules/npm/bin/npm-cli.js /usr/local/bin/npm && \
-    npm i -g yarn
 
-RUN ls
+RUN ln -s /usr/local/lib/node_modules/npm/bin/npm-cli.js /usr/local/bin/npm && \
+    npm i -g yarn typescript@3.4.5 ts-node && \
+    apk --no-cache add mongodb-tools docker && \
+    az aks install-cli
+
